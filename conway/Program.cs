@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using conway.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<conwayContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("conwayContext") ?? throw new InvalidOperationException("Connection string 'conwayContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
