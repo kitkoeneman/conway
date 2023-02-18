@@ -1,0 +1,6 @@
+# ignore the hidden .vs directory
+.vs/*
+
+# ignore Debug files that change most times you run/test the application
+conway/bin/Debug/
+conway/obj/Debug/
