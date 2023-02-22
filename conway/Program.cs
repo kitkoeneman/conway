@@ -1,7 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using conway.Data;
+using conway.Models;
+using conway.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddDbContext<conwayContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("conwayContext") ?? throw new InvalidOperationException("Connection string 'conwayContext' not found.")));
 
@@ -9,6 +13,13 @@ builder.Services.AddDbContext<conwayContext>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    SeedData.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

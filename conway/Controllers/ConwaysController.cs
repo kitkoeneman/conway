@@ -20,11 +20,44 @@ namespace conway.Controllers
         }
 
         // GET: Conways
-        public async Task<IActionResult> Index()
+        // GET: Movies
+        public async Task<IActionResult> Index(string movieGenre, string searchString)
         {
-              return _context.Conway != null ? 
-                          View(await _context.Conway.ToListAsync()) :
-                          Problem("Entity set 'conwayContext.Conway'  is null.");
+            if (_context.Conway == null)
+            {
+                return Problem("Entity set 'conwayContext.Conways'  is null.");
+            }
+
+            // Use LINQ to get list of genres.
+            IQueryable<string> genreQuery = from m in _context.Conway
+                                            orderby m.Genre
+                                            select m.Genre;
+            var conways = from m in _context.Conway
+                         select m;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                conways = conways.Where(s => s.Title!.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                conways = conways.Where(x => x.Genre == movieGenre);
+            }
+
+            var movieGenreVM = new ConwayGenreViewModel
+            {
+                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Conways = await conways.ToListAsync()
+            };
+
+            return View(movieGenreVM);
+        }
+
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
         }
 
         // GET: Conways/Details/5
@@ -56,7 +89,7 @@ namespace conway.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")] Conway conway)
+        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Conway conway)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +121,7 @@ namespace conway.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Conway conway)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Conway conway)
         {
             if (id != conway.Id)
             {
