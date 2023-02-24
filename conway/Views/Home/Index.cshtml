@@ -3,6 +3,14 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Conway's Game of Life</h1>
+    <h2>An implementation by Kit Koeneman</h2>
+    <p>If you've never heard of this, check out https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life</p>
+</div>
+
+<div>
+    <h2>Parameters</h2>
+    <p>Height:</p>@Html.TextBox("Height")
+    <p>Width:</p>@Html.TextBox("Width")
+    <a asp-action="Start">Start</a>
 </div>
