@@ -10,9 +10,12 @@
 
 <div>
     <h2>Parameters</h2>
-    <p>Height:</p>@Html.TextBox("Height")
-    <p>Width:</p>@Html.TextBox("Width")
-    <a asp-action="FillBoard">
-        <input type="button" value="Start" />
-    </a>
+    
+
+
+    <form asp-action="FillBoard">
+        <input type="text" name="Height" required="required"/>
+        <input type="text" name="Width" required="required" />
+        <input type="submit" value="FillBoard" class="btn btn-primary"/>
+    </form>
 </div>
