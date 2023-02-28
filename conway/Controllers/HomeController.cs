@@ -23,8 +23,10 @@ namespace conway.Controllers
             return View();
         }
 
-        public IActionResult FillBoard()
-        { 
+        public IActionResult FillBoard(int width = 20, int height = 30)
+        {
+            ViewData["Width"] = width;
+            ViewData["height"] = height;
             return View(); 
         }
 
