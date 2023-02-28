@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Page Test";
 }
 
 <div class="text-center">
@@ -12,5 +12,7 @@
     <h2>Parameters</h2>
     <p>Height:</p>@Html.TextBox("Height")
     <p>Width:</p>@Html.TextBox("Width")
-    <a asp-action="Start">Start</a>
+    <a asp-action="FillBoard">
+        <input type="button" value="Start" />
+    </a>
 </div>

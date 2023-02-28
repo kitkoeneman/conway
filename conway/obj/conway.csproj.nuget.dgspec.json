@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GitHub\\conway\\conway\\conway.csproj": {}
+    "C:\\GitHub\\Conway\\conway\\conway.csproj": {}
   },
   "projects": {
-    "C:\\GitHub\\conway\\conway\\conway.csproj": {
+    "C:\\GitHub\\Conway\\conway\\conway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\conway\\conway\\conway.csproj",
+        "projectUniqueName": "C:\\GitHub\\Conway\\conway\\conway.csproj",
         "projectName": "conway",
-        "projectPath": "C:\\GitHub\\conway\\conway\\conway.csproj",
+        "projectPath": "C:\\GitHub\\Conway\\conway\\conway.csproj",
         "packagesPath": "C:\\Users\\Cara Lily\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\conway\\conway\\obj\\",
+        "outputPath": "C:\\GitHub\\Conway\\conway\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -62,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
