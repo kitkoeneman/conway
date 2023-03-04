@@ -23,11 +23,16 @@ namespace conway.Controllers
             return View();
         }
 
-        public IActionResult FillBoard(int height, int width)
+        [HttpPost]
+        public IActionResult MakeBoard(GameBoard makeBoardRequest)
         {
-            ViewData["height"] = height;
-            ViewData["Width"] = width;
-            return View(); 
+            var GameBoard = new GameBoard()
+            {
+                Height = makeBoardRequest.Height,
+                Width = makeBoardRequest.Width,
+            };
+            //return View(GameBoard);
+            return RedirectToAction("FillBoard");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model conway.Models.GameBoard
+
+@{
     ViewData["Title"] = "Home Page Test";
 }
 
@@ -11,11 +13,23 @@
 <div>
     <h2>Parameters</h2>
     
-
-
-    <form asp-action="FillBoard">
-        <input type="text" name="Height" required="required"/>
-        <input type="text" name="Width" required="required" />
-        <input type="submit" value="FillBoard" class="btn btn-primary"/>
+    <form method="post" asp-controller="GameBoard" asp-action="FillBoard">
+        <div>
+            <label class="form-label">Height</label>
+            <input type="text" class="form-control" asp-for="Height"/>
+            <span asp-validation-for="Height" class="text-danger" />
+        </div>
+        <div>
+            <label class="form-label">Width</label>
+            <input type="text" class="form-control" asp-for="Width">
+            <span asp-validation-for="Width" class="text-danger" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <!--
+    <form method="post" action="FillBoard">
+        <input type="text" name="Height" asp-for="Height"/>
+        <input type="text" name="Width" asp-for="Width" />
+        <input type="submit" value="FillBoard" class="btn btn-primary"/>
+    </form>-->
 </div>

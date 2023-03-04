@@ -11,11 +11,12 @@ namespace conway.Models
         public int Width { get; set; }
         public int[,,]? Board { get; set; }
 
+        /*
         public GameBoard(int height, int width)
         {
             Height = height; 
             Width = width;
-        }
+        }*/
     }
 
 
