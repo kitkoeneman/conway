@@ -26,12 +26,14 @@ namespace conway.Controllers
         [HttpPost]
         public IActionResult MakeBoard(GameBoard makeBoardRequest)
         {
-            var GameBoard = new GameBoard()
+            if (ModelState.IsValid)
             {
-                Height = makeBoardRequest.Height,
-                Width = makeBoardRequest.Width,
-            };
-            //return View(GameBoard);
+                var GameBoard = new GameBoard()
+                {
+                    Height = makeBoardRequest.Height,
+                    Width = makeBoardRequest.Width,
+                };
+            }
             return RedirectToAction("FillBoard");
         }
 
