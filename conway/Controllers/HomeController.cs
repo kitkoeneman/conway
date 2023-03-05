@@ -23,6 +23,20 @@ namespace conway.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult MakeBoard(GameBoard makeBoardRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                var GameBoard = new GameBoard()
+                {
+                    Height = makeBoardRequest.Height,
+                    Width = makeBoardRequest.Width,
+                };
+            }
+            return RedirectToAction("FillBoard");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
