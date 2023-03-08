@@ -7,3 +7,14 @@
 <h2>Fill Board</h2>
 
 <p>A clickable board will go here with height @Model.Height and width @Model.Width.</p>
+
+@for(var y = 0; y < Model.Height; y++)
+{
+    <tr>
+    @for(var x = 0; x < Model.Width; x++)
+    {
+        <td>X</td>
+    }
+    </tr>
+    <br/>
+}

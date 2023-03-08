@@ -9,6 +9,6 @@ namespace conway.Models
         
         [Range(10,100), Required]
         public int Width { get; set; }
-        public int[,,]? Board { get; set; }
+        public int[,]? Board { get; set; }
     }
 }
